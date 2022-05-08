@@ -39,3 +39,15 @@ A 4-bit CPU and a 16 by 8 RAM in a von Neumann computer architecture was designe
 | ADD        | Direct         | 0000   |  ADD (Address)          |
 | SUB        | Direct         | 0001   |  SUB (Address)         |
 | MUL | Direct | 0010 | MUL (Address) |
+| DIV | Direct | 0011 | DIV (Address) |
+| NOT | Direct | 0100 | NOT (Address) | 
+| AND | Direct | 0101 | AND (Address) |
+| OR | Direct | 0110 | OR (Address) | 
+| STOP | Implied | 0111 | STOP |
+| LOAD | Direct | 1000 | LOAD (Address) |
+| BRLINKZ | Direct | 1001 | BRLINKZ (Address) |
+| JUMP | Direct | 1010 | JUMP (Address) |
+| STORE | Direct | 1011 | STORE (Address) |
+| BRLINK | Direct | 1101 | BRLINK (Address) |
+| OUTPUT | Implied | 1110 | OUTPUT |
+| BRR | Implied | 1111 | BRR |
