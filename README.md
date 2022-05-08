@@ -33,3 +33,8 @@ A 4-bit CPU and a 16 by 8 RAM in a von Neumann computer architecture was designe
 10. Output Register: Register that holds the content that the user wants to be outputted from the accumulator. It is positively edge triggered with one control pin
   - Lo - Load the output register from the bus
 
+## Instruction Set Architecture
+| Instruction Name     | Addressing      | Opcode | Format   
+| ------------- | ------------- | --------    | ---------- |
+| ADD        | Direct         | 0000   |  ADD (Address)          |
+| SUB        | Direct         | 0001   |  SUB (Address)         |
