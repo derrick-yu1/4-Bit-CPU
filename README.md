@@ -38,3 +38,4 @@ A 4-bit CPU and a 16 by 8 RAM in a von Neumann computer architecture was designe
 | ------------- | ------------- | --------    | ---------- |
 | ADD        | Direct         | 0000   |  ADD (Address)          |
 | SUB        | Direct         | 0001   |  SUB (Address)         |
+| MUL | Direct | 0010 | MUL (Address) |
