@@ -132,7 +132,7 @@ Description: Increment the Program Counter by 1.
 
 Timing Diagram:
 
-The Cp signal is high, which causes the program counter to be incremented by 1 so that it will hold the address of the next instruction in memory
+The Cp signal is high, which causes the program counter to be incremented by 1 so that it will hold the address of the next instruction in memory.
 
 Diagram:
 
@@ -151,6 +151,7 @@ Diagram:
 
 
 Memory (STORE Instruction):
+
 T4: Since all instructions are in terms of addresses, the computer will send the address operand of the instruction from the instruction register to the memory address register, setting the RAM module at the address. 
 
 Timing Diagram: 
