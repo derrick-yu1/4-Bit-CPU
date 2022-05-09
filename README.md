@@ -175,7 +175,9 @@ The signals Ea is HIGH, allowing the accumulator to output its content onto the 
 
 Diagram:
 
-T6: This is a no operation.
+T6: 
+
+Description: This is a no operation.
 
 
 Arithmetic (ADD Instruction):
