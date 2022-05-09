@@ -23,7 +23,7 @@ A 4-bit CPU and a 16 by 8 RAM in a von Neumann computer architecture was designe
 6. Accumulator: Register that stores the result of an ALU operation. It is positively edge triggered with two control pins
   - La - Load the accumulator from the bus
   - Ea - Output the accumulator onto the bus
-7. ALU: Performs arithmetic and logical operations. It has three control pins grouped as a single“Select” control
+7. ALU: Performs arithmetic and logical operations. It has three control pins grouped as a single “Select” control
   - ALU Select (M2M1M0)
 8. ALU Input Register: Register that holds the data that will be used to perform an operation by the ALU with the content in the accumulator. It is positively edge triggered with one control pin
   - Lib - Load IB from the bus
@@ -72,7 +72,7 @@ Implied Addressing
 6. AND - Bit AND the data stored in the address (operand) with the data in the accumulator and load the result into the accumulator.
 7. OR - Bit OR the data stored in the address (operand) with the data in the accumulator and load the result into the accumulator.
 8. STOP - Stop the clock.
-9. LOAD - Load the data stored in the address (operand) to the accumulator.
+9. LOAD - Load the data stored in the address (operand) into the accumulator.
 10. BRLINKZ - If the zero flag of the ALU is 1, branch to a procedure that has the address stored in the operand of the instruction and load the return address (the instruction that the program was supposed to go to) into the return address register.
 11. JUMP - Jump to a instruction to the address stored in the operand of the instruction.
 12. STORE - Store the data in the accumulator to the address in the operand of the instruction.
@@ -84,7 +84,7 @@ As you can see, the majority of the instructions have a direct addressing mode. 
 
 # What happens in PROGRAMMING Mode
 ## How to load your own code 
-In the file “cpuf_tb.v”, there is a section called “RAM Contents - Object File” where you are able to input your machine code so that when the testbench is running, it will load your object file into the RAM module during simulation. The format of this section mimics the RAM hardware for readability. Make sure that the addresses for each of your instructions and data are correct. 
+In the file “cpuf_tb.v”, there is a section called “RAM Contents - Object File” where you are able to input your machine code so that when the testbench is running, it will load your machine code into the RAM module during simulation. The format of this section mimics the RAM hardware for readability. Make sure that the addresses for each of your instructions and data are correct. 
 ```
 /*RAM Contents - OBJECT FILE (Fibonacci)*/
   /****Address*****/    /**Instruction or Data**/
