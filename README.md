@@ -93,4 +93,34 @@ vvp cpuf_tb.vvp
 ## How code is loaded into RAM in the testbench:
 In the “Overview of Architecture” section, there are two 4:1 mux for the address input of the RAM and the input data of the RAM. The muxes select whether the address and data inputted into the RAM is either from the object file or from the memory address register or bus. When you are uploading the object file to the RAM, the mux will be set to output whatever is from the object file for both address and the data input. When you are done uploading the object file, the mux will then select the memory address register for the address of the RAM and the bus for the data input.
 
+## What happens in RUN MODE
+Each instruction will take six clock cycles (CPI = 6). This is because most instructions (arithmetic, BRLINK/Z) will take all six clock cycles, so no-operations were added to those instructions that did not need all six clock cycles to be completed. Each clock cycle has a very specific purpose in how to execute the instruction. As a result, they will be referred to as “T States” (T1-T6), where the first clock cycle is T1, the second clock cycle is T2, etc. The functionality of T1-T3 are the same for all instructions:
+
+T1:
+Description: Send the content of the program counter to the memory address register, accessing the data at that address in the RAM. 
+
+Timing Diagram:
+
+To accomplish this task, the program counter must be enabled so that it can put its content on the bus and the memory address register must have a HIGH load signal to take in content from the bus. Therefore, the Ep signal must be HIGH and the Lm load signal must be HIGH. 
+
+Diagram:
+
+
+
+
+
+T2: 
+Description: Increment the Program Counter by 1
+
+Timing Diagram:
+The Cp signal is high, which causes the program counter to be incremented by 1 so that it will hold the address of the next instruction in memory
+
+Diagram:
+
+
+
+T3:
+Description: Send the data at the address in the RAM to the instruction register, where it will automatically send the opcode of the instruction to the controller. 
+
+
 
