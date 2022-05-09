@@ -60,7 +60,7 @@ Direct Addresing
 
 Implied Addressing
 
-| Opcode     | Data      | 
+| Opcode     | XXXX      | 
 | ------------- | ------------- | 
 | Bit 7 - 4 | Bit 3 - 0 | 
 
