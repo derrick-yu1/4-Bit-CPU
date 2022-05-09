@@ -86,6 +86,27 @@ As you can see, the majority of the instructions have a direct addressing mode. 
 ## How to load your own code 
 In the file “cpuf_tb.v”, there is a section called “RAM Contents - Object File” where you are able to input your machine code so that when the testbench is running, it will load your object file into the RAM module during simulation. The format of this section mimics the RAM hardware for readability. Make sure that the addresses for each of your instructions and data are correct. Simply input your machine code and on your terminal, enter
 ```
+/*RAM Contents - OBJECT FILE (Fibonacci)*/
+  /****Address*****/    /**Instruction or Data**/
+reg addr0 = 4'b0000; reg [7:0] data0 = 8'b10111111; //STORE A15
+reg addr1 = 4'b0001; reg [7:0] data1 = 8'b00001110; //ADD A14 (A13 + A14)
+reg addr2 = 4'b0010; reg [7:0] data2 = 8'b11100000; //OUTPUT
+reg addr3 = 4'b0011; reg [7:0] data3 = 8'b10111101; // STORE A13
+reg addr4 = 4'b0100; reg [7:0] data4 = 8'b10001101; //LOAD A13
+reg addr5 = 4'b0101; reg [7:0] data5 = 8'b10111111; //STORE A15
+reg addr6 = 4'b0110; reg [7:0] data6 = 8'b00001110; //ADD A14 (A13 + A14) 
+reg addr7 = 4'b0111; reg [7:0] data7 = 8'b11100000; // OUTPUT
+reg addr8 = 4'b1000; reg [7:0] data8 = 8'b10111101; // STORE A13
+reg addr9 = 4'b1001; reg [7:0] data9 = 8'b10001111; //LOAD A13
+reg addr10 = 4'b1010; reg [7:0] data10 = 8'b10111110; //LOAD A14
+reg addr11 = 4'b1011; reg [7:0] data11 = 8'b10101100; //JUMP A12
+reg addr12 = 4'b1100; reg [7:0] data12 = 8'b00000100; 
+reg addr13 = 4'b1101; reg [7:0] data13 = 8'b00000000; 
+reg addr14 = 4'b1110; reg [7:0] data14 = 8'b00000001; 
+reg addr15 = 4'b1111; reg [7:0] data15 = 8'b00000001;
+```
+
+```
 iverilog -o cpuf_tb.vvp cpuf_tb.v
 vvp cpuf_tb.vvp
 ```
@@ -93,7 +114,7 @@ vvp cpuf_tb.vvp
 ## How code is loaded into RAM in the testbench:
 In the “Overview of Architecture” section, there are two 4:1 mux for the address input of the RAM and the input data of the RAM. The muxes select whether the address and data inputted into the RAM is either from the object file or from the memory address register or bus. When you are uploading the object file to the RAM, the mux will be set to output whatever is from the object file for both address and the data input. When you are done uploading the object file, the mux will then select the memory address register for the address of the RAM and the bus for the data input.
 
-# What happens in RUN MODE
+# What happens in RUN Mode
 Each instruction will take six clock cycles (CPI = 6). This is because most instructions (arithmetic, BRLINK/Z) will take all six clock cycles, so no-operations were added to those instructions that did not need all six clock cycles to be completed. Each clock cycle has a very specific purpose in how to execute the instruction. As a result, they will be referred to as “T States” (T1-T6), where the first clock cycle is T1, the second clock cycle is T2, etc. The functionality of T1-T3 are the same for all instructions:
 
 T1:
