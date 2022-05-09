@@ -53,14 +53,17 @@ A 4-bit CPU and a 16 by 8 RAM in a von Neumann computer architecture was designe
 | BRR | Implied | 1111 | BRR |
 
 ## Instruction Makeup and Description of Each Instruction
-Direct Addresing </br>
+Direct Addresing 
+
 | Opcode || Address |
 | ---- | ---- |
 | 7 - 4 | | 3 - 0|
 
-Implied Addressing </br>
+Implied Addressing
 | Opcode | | XXXX |
 | 7 - 4 | | 3 - 0|
+
+
 1. ADD - Add the data stored in the address (operand) to the data in the accumulator 
 2. SUB - Subtract the data stored in the address (operand) to the data in the accumulator
 3. MUL - Multiply the data stored in the address (operand) to the data in the accumulator
