@@ -118,6 +118,7 @@ In the “Overview of Architecture” section, there are two 4:1 mux for the add
 Each instruction will take six clock cycles (CPI = 6). This is because most instructions (arithmetic, BRLINK/Z) will take all six clock cycles, so no-operations were added to those instructions that did not need all six clock cycles to be completed. Each clock cycle has a very specific purpose in how to execute the instruction. As a result, they will be referred to as “T States” (T1-T6), where the first clock cycle is T1, the second clock cycle is T2, etc. The functionality of T1-T3 are the same for all instructions:
 
 T1:
+
 Description: Send the content of the program counter to the memory address register, accessing the data at that address in the RAM. 
 
 Timing Diagram:
@@ -139,6 +140,7 @@ Diagram:
 
 
 T3:
+
 Description: Send the data at the address in the RAM to the instruction register, where it will automatically send the opcode of the instruction to the controller. 
 
 Timing Diagram:
@@ -152,7 +154,9 @@ Diagram:
 
 Memory (STORE Instruction):
 
-T4: Since all instructions are in terms of addresses, the computer will send the address operand of the instruction from the instruction register to the memory address register, setting the RAM module at the address. 
+T4: 
+
+Since all instructions are in terms of addresses, the computer will send the address operand of the instruction from the instruction register to the memory address register, setting the RAM module at the address. 
 
 Timing Diagram: 
 
@@ -174,7 +178,9 @@ T6: This is a no operation.
 
 Arithmetic (ADD Instruction):
 
-T4: The address operand of the instruction in the instruction register will be sent to the memory address register, automatically setting the RAM module at that address.
+T4: 
+
+The address operand of the instruction in the instruction register will be sent to the memory address register, automatically setting the RAM module at that address.
 
 Timing Diagram: 
 
@@ -183,7 +189,9 @@ The signals Ei is HIGH, which allows the instruction register to load its data o
 
 Diagram:
 
-T5: The data at the address that the RAM is set will be loaded into the ALU Input register.
+T5:
+
+The data at the address that the RAM is set will be loaded into the ALU Input register.
 
 Timing Diagram: 
 
@@ -191,7 +199,9 @@ The signal CS will be HIGH, allowing the RAM module to output its data onto the 
 
 Diagram:
 
-T6: The ALU will load the result of the operation into the accumulator.
+T6: 
+
+The ALU will load the result of the operation into the accumulator.
 
 Timing Diagram: 
 
@@ -200,7 +210,9 @@ The signal Ealu will be HIGH, allowng the ALU to output its content onto the bus
 Diagram:
 
 Branching (JUMP Instruction):
-T4: The address operand of the instruction in the instruction register will be sent to the memory address register, automatically setting the RAM module at the address
+T4:
+
+The address operand of the instruction in the instruction register will be sent to the memory address register, automatically setting the RAM module at the address
 
 Timing Diagram: 
 
@@ -208,7 +220,9 @@ The signals Ei is HIGH, which allows the instruction register to load its data o
 
 Diagram:
 
-T5: The data at the address of the RAM module will be loaded into the program counter. 
+T5: 
+
+The data at the address of the RAM module will be loaded into the program counter. 
 
 Timing Diagram: 
 
@@ -216,7 +230,9 @@ The signals Cs is HIGH, allowing the RAM module to load its content onto the bus
 
 Diagram:
 
-T6: This is a no operation.
+T6:
+
+This is a no operation.
 
 
 
