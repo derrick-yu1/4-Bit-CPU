@@ -64,21 +64,21 @@ Implied Addressing
 | ------------- | ------------- | 
 | Bit 7 - 4 | Bit 3 - 0 | 
 
-1. ADD - Add the data stored in the address (operand) to the data in the accumulator 
-2. SUB - Subtract the data stored in the address (operand) to the data in the accumulator
-3. MUL - Multiply the data stored in the address (operand) to the data in the accumulator
-4. DIV - Divide the data stored in the address (operand) to the data in the accumulator
-5. NOT - Bit NOT the data stored in the address (operand) with the data in the accumulator
-6. AND - Bit AND the data stored in the address (operand) with the data in the accumulator
-7. OR - Bit OR the data stored in the address (operand) with the data in the accumulator
-8. STOP - Stop the clock
-9. LOAD - Load the data stored in the address (operand) to the accumulator
-10. BRLINKZ - If the zero flag of the ALU is 1, branch to a procedure to the address stored in the operand of the instruction and load the return address to the return address register
-11. JUMP - Jump to a instruction to the address stored in the operand of the instruction
-12. STORE - Store the data in the accumulator to the address in the operand of the instruction
-13. BRLINK - Branch to a procedure to the address stored in the operand of the instruction and load the return address to the return address register
-14. OUTPUT - Load the data stored in the accumulator to the output register 
-15. BRR - Return to the address in the return address register
+1. ADD - Add the data stored in the address (operand) to the data in the accumulator and load the result into the accumulator.
+2. SUB - Subtract the data stored in the address (operand) to the data in the accumulator and load the result into the accumulator.
+3. MUL - Multiply the data stored in the address (operand) to the data in the accumulator and load the result into the accumulator.
+4. DIV - Divide the data stored in the address (operand) to the data in the accumulator and load the result into the accumulator.
+5. NOT - Bit NOT the data stored in the address (operand) with the data in the accumulator and load the result into the accumulator.
+6. AND - Bit AND the data stored in the address (operand) with the data in the accumulator and load the result into the accumulator.
+7. OR - Bit OR the data stored in the address (operand) with the data in the accumulator and load the result into the accumulator.
+8. STOP - Stop the clock.
+9. LOAD - Load the data stored in the address (operand) to the accumulator.
+10. BRLINKZ - If the zero flag of the ALU is 1, branch to a procedure that has the address stored in the operand of the instruction and load the return address (the instruction that the program was supposed to go to) into the return address register.
+11. JUMP - Jump to a instruction to the address stored in the operand of the instruction.
+12. STORE - Store the data in the accumulator to the address in the operand of the instruction.
+13. BRLINK - Branch to a procedure that has the address stored in the operand of the instruction and load the return address into the return address register
+14. OUTPUT - Load the data stored in the accumulator into the output register.
+15. BRR - Return to the address in the return address register by loading the return address into the program counter.
 
 As you can see, the majority of the instructions have a direct addressing mode. This means that the assembly code will be in terms of ADDRESSES in the RAM module, not registers like more advanced architectures. For example, the instruction “ADD A15”, means “add whatever is in address 1111 in your RAM to whatever is in the accumulator”. If the number 5 is in address 1111, running “ADD A15” will add +5 to the accumulator. When you program your own code, you have the freedom of adding any constant that you like, but the addresses of the constants must be higher than the addresses of the instructions. (NOTE THE MEMORY HIERARCHY)
 
@@ -128,7 +128,7 @@ Diagram:
 
 T2: 
 
-Description: Increment the Program Counter by 1
+Description: Increment the Program Counter by 1.
 
 Timing Diagram:
 
@@ -143,11 +143,10 @@ Description: Send the data at the address in the RAM to the instruction register
 
 Timing Diagram:
 
-The CS signal is HIGH, the We signal is LOW, and the Li signal is HIGH, which causes the instruction register to load whatever data is from the RAM at the address.
+The CS signal is HIGH, allowing the RAM module to load data onto the bus. THe signal Li signal is HIGH, which causes the instruction register to load whatever data is on the bus, in this case the data from the RAM module.
 
 
 Diagram:
-
 
 
 
@@ -156,20 +155,20 @@ T4: Since all instructions are in terms of addresses, the computer will send the
 
 Timing Diagram: 
 
-The signals Ei and Lm are HIGH, which means the memory address register will load the lower nibble (address) of the content into the instruction register.
+The signals Ei is HIGH, which allows the instruction register to load its data onto the bus, The signal Lm are HIGH, which means the memory address register will load the data on the bus, in this case the content from the instruction register.
 
 Diagram:
 
 
-T5: The content of the accumulator will be loaded into the RAM
+T5: The content of the accumulator will be loaded into the RAM.
 
 Timing Diagram: 
 
-The signals Ea and We will be HIGH, allowing the accumulator to output its content to the RAM so the RAM can write the new data at the address. 
+The signals Ea is HIGH, allowing the accumulator to output its content onto the bus. The signal We is HIGH, allowing the content from the bus, in this case the accumulator, to be written into the RAM module.
 
 Diagram:
 
-T6: This is a no operation
+T6: This is a no operation.
 
 
 Arithmetic (ADD Instruction):
@@ -177,23 +176,24 @@ T4: The address operand of the instruction in the instruction register will be s
 
 Timing Diagram: 
 
-The signals Ei and Lm are HIGH, which means the memory address register will load the lower nibble (address) of the content in the instruction register. 
+The signals Ei is HIGH, which allows the instruction register to load its data onto the bus, The signal Lm are HIGH, which means the memory address register will load the data on the bus, in this case the content from the instruction register.
+
 
 Diagram:
 
-T5: The data at the address that the RAM is set will be loaded into the ALU Input register
+T5: The data at the address that the RAM is set will be loaded into the ALU Input register.
 
 Timing Diagram: 
 
-The signal CS and Lib will be HIGH, allowing the RAM to load its content into the input register 
+The signal CS will be HIGH, allowing the RAM module to output its data onto the bus. The signal Lib will be HIGH, causing the input register to load the data that is on the bus, in this case the content from the RAM.
 
 Diagram:
 
-T6: The ALU will load the result of the operation into the accumulator
+T6: The ALU will load the result of the operation into the accumulator.
 
 Timing Diagram: 
 
-The signal Ealu and La will be HIGH, allowing the ALU to load the result into the accumulator. 
+The signal Ealu will be HIGH, allowng the ALU to output its content onto the bus. THe signal La is high, allowing the accumulator to load the data that is on the bus, in this case the content of the ALU.
 
 Diagram:
 
@@ -202,7 +202,7 @@ T4: The address operand of the instruction in the instruction register will be s
 
 Timing Diagram: 
 
-The signals Ei and Lm are HIGH, which means the memory address register will load the lower nibble (address) of the content in the instruction register.
+The signals Ei is HIGH, which allows the instruction register to load its data onto the bus, The signal Lm are HIGH, which means the memory address register will load the data on the bus, in this case the content from the instruction registe.r
 
 Diagram:
 
@@ -210,11 +210,11 @@ T5: The data at the address of the RAM module will be loaded into the program co
 
 Timing Diagram: 
 
-The signals Cs and Lp are HIGH, which means the RAM module will output its data to the program counter.
+The signals Cs is HIGH, allowing the RAM module to load its content onto the bus. The signal Lp is HIGH, allowing the program counter to load data form the bus, in this case the content from the RAM module.
 
 Diagram:
 
-T6: No operation
+T6: This is a no operation.
 
 
 
