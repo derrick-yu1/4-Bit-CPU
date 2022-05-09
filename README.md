@@ -73,7 +73,7 @@ Implied Addressing
 7. OR - Bit OR the data stored in the address (operand) with the data in the accumulator
 8. STOP - Stop the clock
 9. LOAD - Load the data stored in the address (operand) to the accumulator
-10. BRLINKZ - If the zero flag of the accumulator is 1, branch to a procedure to the address stored in the operand of the instruction and load the return address to the return address register
+10. BRLINKZ - If the zero flag of the ALU is 1, branch to a procedure to the address stored in the operand of the instruction and load the return address to the return address register
 11. JUMP - Jump to a instruction to the address stored in the operand of the instruction
 12. STORE - Store the data in the accumulator to the address in the operand of the instruction
 13. BRLINK - Branch to a procedure to the address stored in the operand of the instruction and load the return address to the return address register
