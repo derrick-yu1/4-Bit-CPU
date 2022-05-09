@@ -156,7 +156,7 @@ Memory (STORE Instruction):
 
 T4: 
 
-Since all instructions are in terms of addresses, the computer will send the address operand of the instruction from the instruction register to the memory address register, setting the RAM module at the address. 
+Description: Since all instructions are in terms of addresses, the computer will send the address operand of the instruction from the instruction register to the memory address register, setting the RAM module at the address. 
 
 Timing Diagram: 
 
@@ -165,7 +165,9 @@ The signals Ei is HIGH, which allows the instruction register to load its data o
 Diagram:
 
 
-T5: The content of the accumulator will be loaded into the RAM.
+T5: 
+
+Description: The content of the accumulator will be loaded into the RAM.
 
 Timing Diagram: 
 
@@ -180,7 +182,7 @@ Arithmetic (ADD Instruction):
 
 T4: 
 
-The address operand of the instruction in the instruction register will be sent to the memory address register, automatically setting the RAM module at that address.
+Description: The address operand of the instruction in the instruction register will be sent to the memory address register, automatically setting the RAM module at that address.
 
 Timing Diagram: 
 
@@ -191,7 +193,7 @@ Diagram:
 
 T5:
 
-The data at the address that the RAM is set will be loaded into the ALU Input register.
+Description: The data at the address that the RAM is set will be loaded into the ALU Input register.
 
 Timing Diagram: 
 
@@ -201,7 +203,7 @@ Diagram:
 
 T6: 
 
-The ALU will load the result of the operation into the accumulator.
+Description: The ALU will load the result of the operation into the accumulator.
 
 Timing Diagram: 
 
@@ -210,9 +212,10 @@ The signal Ealu will be HIGH, allowng the ALU to output its content onto the bus
 Diagram:
 
 Branching (JUMP Instruction):
+
 T4:
 
-The address operand of the instruction in the instruction register will be sent to the memory address register, automatically setting the RAM module at the address
+Description: The address operand of the instruction in the instruction register will be sent to the memory address register, automatically setting the RAM module at the address
 
 Timing Diagram: 
 
@@ -222,7 +225,7 @@ Diagram:
 
 T5: 
 
-The data at the address of the RAM module will be loaded into the program counter. 
+Description: The data at the address of the RAM module will be loaded into the program counter. 
 
 Timing Diagram: 
 
@@ -232,7 +235,7 @@ Diagram:
 
 T6:
 
-This is a no operation.
+Description: This is a no operation.
 
 
 
