@@ -84,7 +84,7 @@ As you can see, the majority of the instructions have a direct addressing mode. 
 
 # What happens in PROGRAMMING Mode
 ## How to load your own code 
-In the file “cpuf_tb.v”, there is a section called “RAM Contents - Object File” where you are able to input your machine code so that when the testbench is running, it will load your object file into the RAM module during simulation. The format of this section mimics the RAM hardware for readability. Make sure that the addresses for each of your instructions and data are correct. Simply input your machine code and on your terminal, enter
+In the file “cpuf_tb.v”, there is a section called “RAM Contents - Object File” where you are able to input your machine code so that when the testbench is running, it will load your object file into the RAM module during simulation. The format of this section mimics the RAM hardware for readability. Make sure that the addresses for each of your instructions and data are correct. 
 ```
 /*RAM Contents - OBJECT FILE (Fibonacci)*/
   /****Address*****/    /**Instruction or Data**/
@@ -105,7 +105,7 @@ reg addr13 = 4'b1101; reg [7:0] data13 = 8'b00000000;
 reg addr14 = 4'b1110; reg [7:0] data14 = 8'b00000001; 
 reg addr15 = 4'b1111; reg [7:0] data15 = 8'b00000001;
 ```
-
+Simply input your machine code and on your terminal, enter
 ```
 iverilog -o cpuf_tb.vvp cpuf_tb.v
 vvp cpuf_tb.vvp
