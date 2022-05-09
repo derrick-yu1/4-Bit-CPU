@@ -51,4 +51,5 @@ A 4-bit CPU and a 16 by 8 RAM in a von Neumann computer architecture was designe
 | BRLINK | Direct | 1101 | BRLINK (Address) |
 | OUTPUT | Implied | 1110 | OUTPUT |
 | BRR | Implied | 1111 | BRR |
+
 As you can see, the majority of the instructions have a direct addressing mode. This means that the assembly code will be in terms of ADDRESSES in the RAM module, not registers like more advanced architectures. For example, the instruction “ADD A15”, means “add whatever is in address 1111 in your RAM to whatever is in the accumulator”. If the number 5 is in address 1111, running “ADD A15” will add +5 to the accumulator. When you program your own code, you have the freedom of adding any constant that you like, but the addresses of the constants must be higher than the addresses of the instructions. (NOTE THE MEMORY HIERARCHY)
