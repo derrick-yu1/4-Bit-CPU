@@ -56,15 +56,13 @@ A 4-bit CPU and a 16 by 8 RAM in a von Neumann computer architecture was designe
 Direct Addresing 
 | Opcode     | Data      | 
 | ------------- | ------------- | 
-| 7 - 4 | 3 - 0 | 
+| Bit 7 - 4 | Bit 3 - 0 | 
 
 Implied Addressing
 
 | Opcode     | Data      | 
 | ------------- | ------------- | 
-| 7 - 4 | 3 - 0 | 
-
-
+| Bit 7 - 4 | Bit 3 - 0 | 
 
 1. ADD - Add the data stored in the address (operand) to the data in the accumulator 
 2. SUB - Subtract the data stored in the address (operand) to the data in the accumulator
