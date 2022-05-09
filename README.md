@@ -105,14 +105,12 @@ To accomplish this task, the program counter must be enabled so that it can put 
 
 Diagram:
 
-
-
-
-
 T2: 
+
 Description: Increment the Program Counter by 1
 
 Timing Diagram:
+
 The Cp signal is high, which causes the program counter to be incremented by 1 so that it will hold the address of the next instruction in memory
 
 Diagram:
@@ -121,8 +119,11 @@ Diagram:
 
 T3:
 Description: Send the data at the address in the RAM to the instruction register, where it will automatically send the opcode of the instruction to the controller. 
+
 Timing Diagram:
+
 The CS signal is HIGH, the We signal is LOW, and the Li signal is HIGH, which causes the instruction register to load whatever data is from the RAM at the address.
+
 
 Diagram:
 
@@ -132,14 +133,20 @@ Diagram:
 Memory (STORE Instruction):
 T4: Since all instructions are in terms of addresses, the computer will send the address operand of the instruction from the instruction register to the memory address register, setting the RAM module at the address. 
 
-Timing Diagram: The signals Ei and Lm are HIGH, which means the memory address register will load the lower nibble (address) of the content in the instruction register.
+Timing Diagram: 
+
+The signals Ei and Lm are HIGH, which means the memory address register will load the lower nibble (address) of the content into the instruction register.
+
+Diagram:
 
 
 T5: The content of the accumulator will be loaded into the RAM
 
-Timing Diagram: The signals Ea and We will be HIGH, allowing the accumulator to output its content to the RAM so the RAM can write the new data at the address. 
+Timing Diagram: 
 
+The signals Ea and We will be HIGH, allowing the accumulator to output its content to the RAM so the RAM can write the new data at the address. 
 
+Diagram:
 
 T6: This is a no operation
 
@@ -147,29 +154,44 @@ T6: This is a no operation
 Arithmetic (ADD Instruction):
 T4: The address operand of the instruction in the instruction register will be sent to the memory address register, automatically setting the RAM module at that address.
 
-Timing Diagram: The signals Ei and Lm are HIGH, which means the memory address register will load the lower nibble (address) of the content in the instruction register. 
+Timing Diagram: 
 
+The signals Ei and Lm are HIGH, which means the memory address register will load the lower nibble (address) of the content in the instruction register. 
+
+Diagram:
 
 T5: The data at the address that the RAM is set will be loaded into the ALU Input register
 
-Timing Diagram: The signal CS and Lib will be HIGH, allowing the RAM to load its content into the input register 
+Timing Diagram: 
 
+The signal CS and Lib will be HIGH, allowing the RAM to load its content into the input register 
 
+Diagram:
 
 T6: The ALU will load the result of the operation into the accumulator
 
+Timing Diagram: 
 
-Timing Diagram: The signal Ealu and La will be HIGH, allowing the ALU to load the result into the accumulator. 
+The signal Ealu and La will be HIGH, allowing the ALU to load the result into the accumulator. 
+
+Diagram:
+
 Branching (JUMP Instruction):
 T4: The address operand of the instruction in the instruction register will be sent to the memory address register, automatically setting the RAM module at the address
 
-Timing Diagram: The signals Ei and Lm are HIGH, which means the memory address register will load the lower nibble (address) of the content in the instruction register.
+Timing Diagram: 
 
+The signals Ei and Lm are HIGH, which means the memory address register will load the lower nibble (address) of the content in the instruction register.
+
+Diagram:
 
 T5: The data at the address of the RAM module will be loaded into the program counter. 
 
+Timing Diagram: 
 
-Timing Diagram: The signals Cs and Lp are HIGH, which means the RAM module will output its data to the program counter.
+The signals Cs and Lp are HIGH, which means the RAM module will output its data to the program counter.
+
+Diagram:
 
 T6: No operation
 
