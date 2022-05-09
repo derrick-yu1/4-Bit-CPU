@@ -55,6 +55,7 @@ A 4-bit CPU and a 16 by 8 RAM in a von Neumann computer architecture was designe
 ## Instruction Makeup and Description of Each Instruction
 Direct Addresing </br>
 | Opcode || Address |
+| ---- | ---- |
 | 7 - 4 | | 3 - 0|
 
 Implied Addressing </br>
