@@ -56,11 +56,13 @@ A 4-bit CPU and a 16 by 8 RAM in a von Neumann computer architecture was designe
 Direct Addresing 
 
 | Opcode || Address |
-| ---- | ---- |
+| ------------- | ------------- | 
 | 7 - 4 | | 3 - 0|
 
 Implied Addressing
+
 | Opcode | | XXXX |
+| ------------- | ------------- | 
 | 7 - 4 | | 3 - 0|
 
 
