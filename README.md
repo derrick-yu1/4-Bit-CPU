@@ -90,3 +90,7 @@ iverilog -o cpuf_tb.vvp cpuf_tb.v
 vvp cpuf_tb.vvp
 ```
 
+## How code is loaded into RAM in the testbench:
+In the “Overview of Architecture” section, there are two 4:1 mux for the address input of the RAM and the input data of the RAM. The muxes select whether the address and data inputted into the RAM is either from the object file or from the memory address register or bus. When you are uploading the object file to the RAM, the mux will be set to output whatever is from the object file for both address and the data input. When you are done uploading the object file, the mux will then select the memory address register for the address of the RAM and the bus for the data input.
+
+
