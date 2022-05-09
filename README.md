@@ -83,9 +83,10 @@ Implied Addressing
 As you can see, the majority of the instructions have a direct addressing mode. This means that the assembly code will be in terms of ADDRESSES in the RAM module, not registers like more advanced architectures. For example, the instruction “ADD A15”, means “add whatever is in address 1111 in your RAM to whatever is in the accumulator”. If the number 5 is in address 1111, running “ADD A15” will add +5 to the accumulator. When you program your own code, you have the freedom of adding any constant that you like, but the addresses of the constants must be higher than the addresses of the instructions. (NOTE THE MEMORY HIERARCHY)
 
 # What happens in PROGRAMMING Mode
-********HOW TO LOAD YOUR OWN CODE**********
+## How to load your own code 
 In the file “cpuf_tb.v”, there is a section called “RAM Contents - Object File” where you are able to input your machine code so that when the testbench is running, it will load your object file into the RAM module during simulation. The format of this section mimics the RAM hardware for readability. Make sure that the addresses for each of your instructions and data are correct. Simply input your machine code and on your terminal, enter
-
+```
 iverilog -o cpuf_tb.vvp cpuf_tb.v
 vvp cpuf_tb.vvp
+```
 
