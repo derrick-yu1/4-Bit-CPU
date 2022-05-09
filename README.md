@@ -173,6 +173,7 @@ T6: This is a no operation.
 
 
 Arithmetic (ADD Instruction):
+
 T4: The address operand of the instruction in the instruction register will be sent to the memory address register, automatically setting the RAM module at that address.
 
 Timing Diagram: 
