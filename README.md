@@ -168,6 +168,8 @@ The signals Ei is HIGH, which allows the instruction register to load its data o
 
 Diagram:
 
+![T4](https://user-images.githubusercontent.com/100246360/167668212-b9588ab2-1b16-44ae-8a6e-59cfdec44cdd.jpg)
+
 Memory (STORE Instruction):
 
 T5: 
