@@ -214,7 +214,7 @@ Diagram:
 
 ![T6 (ADD)](https://user-images.githubusercontent.com/100246360/167670024-e83078a2-90b9-4cc0-aef5-bc3986aff9f2.jpg)
 
-Branching (JUMP Instruction):
+### Branching (JUMP Instruction):
 
 Overall Timing Diagram:
 
