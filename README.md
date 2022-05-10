@@ -182,7 +182,7 @@ The signals Ea is HIGH, allowing the accumulator to output its content onto the 
 
 Diagram:
 
-![T5 (STORE)](https://user-images.githubusercontent.com/100246360/167669221-448206e0-2f9d-4661-aa97-47c27ea86815.jpg)
+![T5 (STORE)](https://user-images.githubusercontent.com/100246360/167672581-a20e44d2-29c6-453e-a26f-0312e13cbc9a.jpg)
 
 T6: 
 
@@ -211,7 +211,7 @@ Description: The ALU will load the result of the operation into the accumulator.
 
 Timing Diagram: 
 
-The signal Ealu will be HIGH, allowng the ALU to output its content onto the bus. THe signal La is high, allowing the accumulator to load the data that is on the bus, in this case the content of the ALU.
+The signal Ealu will be HIGH, allowng the ALU to output its content onto the bus. The signal La is high, allowing the accumulator to load the data that is on the bus, in this case the content of the ALU.
 
 Diagram:
 
