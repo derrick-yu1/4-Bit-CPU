@@ -182,6 +182,8 @@ The signals Ea is HIGH, allowing the accumulator to output its content onto the 
 
 Diagram:
 
+![T5 (STORE)](https://user-images.githubusercontent.com/100246360/167669221-448206e0-2f9d-4661-aa97-47c27ea86815.jpg)
+
 T6: 
 
 Description: This is a no operation.
@@ -201,6 +203,8 @@ The signal CS will be HIGH, allowing the RAM module to output its data onto the 
 
 Diagram:
 
+![T5 (ADD)](https://user-images.githubusercontent.com/100246360/167669653-c26b0ab3-d067-4a4c-acde-8ba123f3fc0a.jpg)
+
 T6: 
 
 Description: The ALU will load the result of the operation into the accumulator.
@@ -210,6 +214,8 @@ Timing Diagram:
 The signal Ealu will be HIGH, allowng the ALU to output its content onto the bus. THe signal La is high, allowing the accumulator to load the data that is on the bus, in this case the content of the ALU.
 
 Diagram:
+
+![T6 (ADD)](https://user-images.githubusercontent.com/100246360/167670024-e83078a2-90b9-4cc0-aef5-bc3986aff9f2.jpg)
 
 Branching (JUMP Instruction):
 
@@ -222,6 +228,8 @@ Timing Diagram:
 The signals Cs is HIGH, allowing the RAM module to load its content onto the bus. The signal Lp is HIGH, allowing the program counter to load data form the bus, in this case the content from the RAM module.
 
 Diagram:
+
+![T5 (JUMP)](https://user-images.githubusercontent.com/100246360/167670349-ccadf09e-0c69-4590-8e1a-fe1136468d5e.jpg)
 
 T6:
 
