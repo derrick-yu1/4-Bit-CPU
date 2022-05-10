@@ -172,13 +172,13 @@ Diagram:
 
 ![T4](https://user-images.githubusercontent.com/100246360/167668212-b9588ab2-1b16-44ae-8a6e-59cfdec44cdd.jpg)
 
-Memory (STORE Instruction):
+### Memory (STORE Instruction):
+
+Overall Timing Diagram:
 
 T5: 
 
 Description: The content of the accumulator will be loaded into the RAM.
-
-Timing Diagram: 
 
 The signals Ea is HIGH, allowing the accumulator to output its content onto the bus. The signal We is HIGH, allowing the content from the bus, in this case the accumulator, to be written into the RAM module.
 
@@ -190,16 +190,13 @@ T6:
 
 Description: This is a no operation.
 
+### Arithmetic (ADD Instruction):
 
-Arithmetic (ADD Instruction):
-
-Diagram:
+Overall Timing Diagram:
 
 T5:
 
 Description: The data at the address that the RAM is set will be loaded into the ALU Input register.
-
-Timing Diagram: 
 
 The signal CS will be HIGH, allowing the RAM module to output its data onto the bus. The signal Lib will be HIGH, causing the input register to load the data that is on the bus, in this case the content from the RAM.
 
@@ -211,8 +208,6 @@ T6:
 
 Description: The ALU will load the result of the operation into the accumulator.
 
-Timing Diagram: 
-
 The signal Ealu will be HIGH, allowng the ALU to output its content onto the bus. The signal La is high, allowing the accumulator to load the data that is on the bus, in this case the content of the ALU.
 
 Diagram:
@@ -223,9 +218,9 @@ Branching (JUMP Instruction):
 
 T5: 
 
-Description: The data at the address of the RAM module will be loaded into the program counter. 
+Overall Timing Diagram:
 
-Timing Diagram: 
+Description: The data at the address of the RAM module will be loaded into the program counter. 
 
 The signals Cs is HIGH, allowing the RAM module to load its content onto the bus. The signal Lp is HIGH, allowing the program counter to load data form the bus, in this case the content from the RAM module.
 
