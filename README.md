@@ -132,6 +132,8 @@ To accomplish this task, the program counter must be enabled so that it can put 
 
 Diagram:
 
+![T1](https://user-images.githubusercontent.com/100246360/167652593-f6c9361a-285c-4d41-8f6a-907b497f93c1.jpg)
+
 T2: 
 
 Description: Increment the Program Counter by 1.
