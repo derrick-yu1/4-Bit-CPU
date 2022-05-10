@@ -10,29 +10,29 @@ A 4-bit CPU and a 16 by 8 RAM in a von Neumann computer architecture was designe
 
 ## Description of Each Module
 1. Program Counter: Register that holds the address of the next instruction in memory. It is positively edge triggered with three control pins
-  - Lp - Load the program counter from the bus
+  - Lp - Load content from the bus into the program counter
   - Cp - Increment the program counter 
-  - Ep - Output the program counter onto the bus
+  - Ep - Output the content of the program counter onto the bus
 2. Memory Address Register (MAR): Register that holds the address of the current instruction. It is positively edge triggered with two control pins
-  - Lm - Load MAR from the bus from the bus
-  - Em - Output MAR onto the bus 
+  - Lm - Load content from the bus to the memory address register
+  - Em - Output the content of the memory address register onto the bus 
 3. RAM: Stores data and instructions. It is positively edge triggered with two control pins
-  - Cs - Output RAM in Read mode
-  - We - Read RAM or Write to RAM
+  - Cs - Output the content of the RAM at the current adddress in Read mode
+  - We - Read the content of the RAM at the current address or Write to the RAM at the current address
 4. Instruction Register: Register that holds the instruction. It is positively edge triggered with two control pins
-  - Li - Load the instruction register from the bus
-  - Ei - Output the instruction register onto the bus
+  - Li - Load the content from the bus into the instruction register
+  - Ei - Output the content of the instruction register onto the bus
 5. Control Unit: It decodes the opcode from the instruction and controls all control pins of all modules. It is negatively edge triggered. 
 6. Accumulator: Register that stores the result of an ALU operation. It is positively edge triggered with two control pins
-  - La - Load the accumulator from the bus
-  - Ea - Output the accumulator onto the bus
+  - La - Load content from the bus into the accumulator
+  - Ea - Output the content of the accumulator onto the bus
 7. ALU: Performs arithmetic and logical operations. It has three control pins grouped as a single “Select” control
   - ALU Select (M2M1M0)
 8. ALU Input Register: Register that holds the data that will be used to perform an operation by the ALU with the content in the accumulator. It is positively edge triggered with one control pin
-  - Lib - Load IB from the bus
+  - Lib - Load content from the bus into the ALU input register
 9. Return Address Register: Register that holds the address of the instruction that the program will return to after branching. It is positively edge triggered with two control pins
-  - Lc - Load the return address register from the bus
-  - Ec - Output the return address register onto the bus
+  - Lc - Load content from the bus into the return address register
+  - Ec - Output the content of the return address register onto the bus
 10. Output Register: Register that holds the content that the user wants to be outputted from the accumulator. It is positively edge triggered with one control pin
   - Lo - Load the output register from the bus
 
@@ -117,7 +117,7 @@ vvp cpuf_tb.vvp
 ```
 
 ## How code is loaded into RAM in the testbench:
-In the “Overview of Architecture” section, there are two 4:1 mux for the address input of the RAM and the input data of the RAM. The muxes select whether the address and data inputted into the RAM is either from the object file or from the memory address register or bus. When you are uploading the object file to the RAM, the mux will be set to output whatever is from the object file for both address and the data input. When you are done uploading the object file, the mux will then select the memory address register for the address of the RAM and the bus for the data input.
+In the “Overview of Architecture” section, there are two 4:1 mux for the address input of the RAM and the data input of the RAM. The muxes select whether the address and data inputted into the RAM is either from the machine code during programming mode or from the memory address register or bus in run mode. When you are uploading the machine code to the RAM, the mux will be set to output whatever is from the machine code for both address and the data input (in programming mode). When you are done uploading the object file, the mux will then select the memory address register for the address of the RAM and the bus for the data input (now in run mode)
 
 # What happens in RUN Mode
 Each instruction will take six clock cycles (CPI = 6). This is because most instructions (arithmetic, BRLINK/Z) will take all six clock cycles, so no-operations were added to those instructions that did not need all six clock cycles to be completed. Each clock cycle has a very specific purpose in how to execute the instruction. As a result, they will be referred to as “T States” (T1-T6), where the first clock cycle is T1, the second clock cycle is T2, etc. The functionality of T1-T4 are the same for all instructions:
@@ -152,7 +152,7 @@ Description: Send the data at the address in the RAM to the instruction register
 
 Timing Diagram:
 
-The CS signal is HIGH, allowing the RAM module to load data onto the bus. THe signal Li signal is HIGH, which causes the instruction register to load whatever data is on the bus, in this case the data from the RAM module.
+The CS signal is HIGH, allowing the RAM module to load data onto the bus. The signal Li signal is HIGH, which causes the instruction register to load whatever data is on the bus, in this case the data from the RAM module.
 
 Diagram:
 
