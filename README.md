@@ -144,7 +144,7 @@ The Cp signal is high, which causes the program counter to be incremented by 1 s
 
 Diagram:
 
-
+![T2](https://user-images.githubusercontent.com/100246360/167653005-6c862c6a-5e44-43a9-ae8f-739bad258976.jpg)
 
 T3:
 
@@ -154,10 +154,9 @@ Timing Diagram:
 
 The CS signal is HIGH, allowing the RAM module to load data onto the bus. THe signal Li signal is HIGH, which causes the instruction register to load whatever data is on the bus, in this case the data from the RAM module.
 
-
 Diagram:
 
-
+![T3](https://user-images.githubusercontent.com/100246360/167653338-715bd238-038e-41de-88fd-1eed4f51b95e.jpg)
 
 Memory (STORE Instruction):
 
