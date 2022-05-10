@@ -87,7 +87,6 @@ As you can see, the majority of the instructions have a direct addressing mode. 
 
 ![Memory Hierarchy](https://user-images.githubusercontent.com/100246360/167651325-a5eafb6a-317b-46d0-8f3a-f6b951670439.jpg)
 
-
 # What happens in PROGRAMMING Mode
 ## How to load your own code 
 In the file “cpuf_tb.v”, there is a section called “RAM Contents - Object File” where you are able to input your machine code so that when the testbench is running, it will load your machine code into the RAM module during simulation. The format of this section mimics the RAM hardware for readability. Make sure that the addresses for each of your instructions and data are correct. 
