@@ -120,7 +120,7 @@ vvp cpuf_tb.vvp
 In the “Overview of Architecture” section, there are two 4:1 mux for the address input of the RAM and the input data of the RAM. The muxes select whether the address and data inputted into the RAM is either from the object file or from the memory address register or bus. When you are uploading the object file to the RAM, the mux will be set to output whatever is from the object file for both address and the data input. When you are done uploading the object file, the mux will then select the memory address register for the address of the RAM and the bus for the data input.
 
 # What happens in RUN Mode
-Each instruction will take six clock cycles (CPI = 6). This is because most instructions (arithmetic, BRLINK/Z) will take all six clock cycles, so no-operations were added to those instructions that did not need all six clock cycles to be completed. Each clock cycle has a very specific purpose in how to execute the instruction. As a result, they will be referred to as “T States” (T1-T6), where the first clock cycle is T1, the second clock cycle is T2, etc. The functionality of T1-T3 are the same for all instructions:
+Each instruction will take six clock cycles (CPI = 6). This is because most instructions (arithmetic, BRLINK/Z) will take all six clock cycles, so no-operations were added to those instructions that did not need all six clock cycles to be completed. Each clock cycle has a very specific purpose in how to execute the instruction. As a result, they will be referred to as “T States” (T1-T6), where the first clock cycle is T1, the second clock cycle is T2, etc. The functionality of T1-T4 are the same for all instructions:
 
 T1:
 
@@ -158,8 +158,6 @@ Diagram:
 
 ![T3](https://user-images.githubusercontent.com/100246360/167653338-715bd238-038e-41de-88fd-1eed4f51b95e.jpg)
 
-Memory (STORE Instruction):
-
 T4: 
 
 Description: Since all instructions are in terms of addresses, the computer will send the address operand of the instruction from the instruction register to the memory address register, setting the RAM module at the address. 
@@ -170,6 +168,7 @@ The signals Ei is HIGH, which allows the instruction register to load its data o
 
 Diagram:
 
+Memory (STORE Instruction):
 
 T5: 
 
@@ -187,15 +186,6 @@ Description: This is a no operation.
 
 
 Arithmetic (ADD Instruction):
-
-T4: 
-
-Description: The address operand of the instruction in the instruction register will be sent to the memory address register, automatically setting the RAM module at that address.
-
-Timing Diagram: 
-
-The signals Ei is HIGH, which allows the instruction register to load its data onto the bus, The signal Lm are HIGH, which means the memory address register will load the data on the bus, in this case the content from the instruction register.
-
 
 Diagram:
 
@@ -220,16 +210,6 @@ The signal Ealu will be HIGH, allowng the ALU to output its content onto the bus
 Diagram:
 
 Branching (JUMP Instruction):
-
-T4:
-
-Description: The address operand of the instruction in the instruction register will be sent to the memory address register, automatically setting the RAM module at the address
-
-Timing Diagram: 
-
-The signals Ei is HIGH, which allows the instruction register to load its data onto the bus, The signal Lm are HIGH, which means the memory address register will load the data on the bus, in this case the content from the instruction registe.r
-
-Diagram:
 
 T5: 
 
