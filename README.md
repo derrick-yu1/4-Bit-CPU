@@ -122,6 +122,8 @@ In the “Overview of Architecture” section, there are two 4:1 mux for the add
 # What happens in RUN Mode
 Each instruction will take six clock cycles (CPI = 6). This is because most instructions (arithmetic, BRLINK/Z) will take all six clock cycles, so no-operations were added to those instructions that did not need all six clock cycles to be completed. Each clock cycle has a very specific purpose in how to execute the instruction. As a result, they will be referred to as “T States” (T1-T6), where the first clock cycle is T1, the second clock cycle is T2, etc. The functionality of T1-T4 are the same for all instructions:
 
+In the diagrams below, the "green colored" modules are ones that have at least one change in the state of their control pins. This is for sequential modules (which makes up most of the CPU except for the muxes).
+
 T1:
 
 Description: Send the content of the program counter to the memory address register, accessing the data at that address in the RAM. 
