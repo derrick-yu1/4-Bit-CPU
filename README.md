@@ -216,9 +216,9 @@ Diagram:
 
 Branching (JUMP Instruction):
 
-T5: 
-
 Overall Timing Diagram:
+
+T5: 
 
 Description: The data at the address of the RAM module will be loaded into the program counter. 
 
