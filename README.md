@@ -113,6 +113,8 @@ reg addr15 = 4'b1111; reg [7:0] data15 = 8'b00000001;
 Simply input your machine code and on your terminal, enter
 ```
 iverilog -o cpuf_tb.vvp cpuf_tb.v
+```
+```
 vvp cpuf_tb.vvp
 ```
 
