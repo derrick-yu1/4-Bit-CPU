@@ -218,6 +218,8 @@ Diagram:
 
 Overall Timing Diagram:
 
+![Timing Diagram (JUMP)](https://user-images.githubusercontent.com/100246360/167762902-bfac5a39-f5e8-4842-b21d-c98a9ce16192.jpg)
+
 T5: 
 
 Description: The data at the address of the RAM module will be loaded into the program counter. 
