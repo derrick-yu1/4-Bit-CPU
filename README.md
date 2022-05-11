@@ -124,11 +124,15 @@ Each instruction will take six clock cycles (CPI = 6). This is because most inst
 
 In the diagrams below, the "green colored" modules are ones that have at least one change in the state of their control pins. This is for sequential modules (which makes up most of the CPU except for the muxes).
 
+### T1-T4 Cycle
+
+Overall Timing Diagram:
+
+![Timing Diagram (T1-T4)](https://user-images.githubusercontent.com/100246360/167759231-e80454b1-6ed3-4f8f-bfb5-c1f5b58ef761.jpg)
+
 T1:
 
 Description: Send the content of the program counter to the memory address register, accessing the data at that address in the RAM. 
-
-Timing Diagram:
 
 To accomplish this task, the program counter must be enabled so that it can put its content on the bus and the memory address register must have a HIGH load signal to take in content from the bus. Therefore, the Ep signal must be HIGH and the Lm load signal must be HIGH. 
 
@@ -140,8 +144,6 @@ T2:
 
 Description: Increment the Program Counter by 1.
 
-Timing Diagram:
-
 The Cp signal is high, which causes the program counter to be incremented by 1 so that it will hold the address of the next instruction in memory.
 
 Diagram:
@@ -152,8 +154,6 @@ T3:
 
 Description: Send the data at the address in the RAM to the instruction register, where it will automatically send the opcode of the instruction to the controller. 
 
-Timing Diagram:
-
 The CS signal is HIGH, allowing the RAM module to load data onto the bus. The signal Li signal is HIGH, which causes the instruction register to load whatever data is on the bus, in this case the data from the RAM module.
 
 Diagram:
@@ -163,8 +163,6 @@ Diagram:
 T4: 
 
 Description: Since all instructions are in terms of addresses, the computer will send the address operand of the instruction from the instruction register to the memory address register, setting the RAM module at the address. 
-
-Timing Diagram: 
 
 The signals Ei is HIGH, which allows the instruction register to load its data onto the bus, The signal Lm are HIGH, which means the memory address register will load the data on the bus, in this case the content from the instruction register.
 
@@ -193,6 +191,8 @@ Description: This is a no operation.
 ### Arithmetic (ADD Instruction):
 
 Overall Timing Diagram:
+
+![Timing Diagram (ADD)](https://user-images.githubusercontent.com/100246360/167758838-11f7bf28-d71a-46bf-a5de-67103d4d6c5b.jpg)
 
 T5:
 
