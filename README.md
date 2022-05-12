@@ -176,6 +176,8 @@ Diagram:
 
 Overall Timing Diagram:
 
+![STORE](https://user-images.githubusercontent.com/100246360/167969638-f6679825-7df2-4d51-a982-5851c94ccca7.jpg)
+
 T5: 
 
 Description: The content of the accumulator will be loaded into the RAM.
