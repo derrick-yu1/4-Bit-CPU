@@ -89,7 +89,7 @@ As you can see, the majority of the instructions have a direct addressing mode. 
 
 # What happens in PROGRAMMING Mode
 ## How to load your own code 
-In the file “cpuf_tb.v”, there is a section called “RAM Contents - Object File” where you are able to input your machine code so that when the testbench is running, it will load your machine code into the RAM module during simulation. The format of this section mimics the RAM hardware for readability. Make sure that the addresses for each of your instructions and data are correct. 
+In the file “cpufinal_tb.v”, there is a section called “RAM Contents - Object File” where you are able to input your machine code so that when the testbench is running, it will load your machine code into the RAM module during simulation. The format of this section mimics the RAM hardware for readability. Make sure that the addresses for each of your instructions and data are correct. 
 ```
 /*RAM Contents - OBJECT FILE (Fibonacci)*/
   /****Address*****/    /**Instruction or Data**/
