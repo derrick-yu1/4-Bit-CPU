@@ -166,7 +166,7 @@ T4:
 
 Description: Since all instructions are in terms of addresses, the computer will send the address operand of the instruction from the instruction register to the memory address register, setting the RAM module at the address. 
 
-The signals Ei is HIGH, which allows the instruction register to load its data onto the bus, The signal Lm are HIGH, which means the memory address register will load the data on the bus, in this case the content from the instruction register.
+The signals Ei is HIGH, which allows the instruction register to load its data onto the bus, The signal Lm is HIGH, which means the memory address register will load the data on the bus, in this case the content from the instruction register.
 
 Diagram:
 
@@ -212,7 +212,7 @@ T6:
 
 Description: The ALU will load the result of the operation into the accumulator.
 
-The signal Ealu will be HIGH, allowng the ALU to output its content onto the bus. The signal La is high, allowing the accumulator to load the data that is on the bus, in this case the content of the ALU.
+The signal Ealu will be HIGH, allowng the ALU to output its content onto the bus. The signal La is high, allowing the accumulator to load the data that is on the bus, in this case the content of the ALU. Also, the ALU Select is set at 000, which represents the ADD operation.
 
 Diagram:
 
