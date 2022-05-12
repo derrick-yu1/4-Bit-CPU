@@ -1,12 +1,12 @@
-# AUTHORS
+# AUTHORS of 4 Bit CPU
 1. Derrick Yu
 2. Alex Liu
 
-# ISA
+# Instruction Set Architecture
 1. Derrick Yu (50%)
 2. Alex Liu (50%)
 
-# CPU Modules
+# Verilog Modules
 
 ## Program Counter Module
 1. Derrick Yu (100%)
@@ -23,14 +23,14 @@
 ## RAM and Multiplexers Module
 1. Derrick Yu (100%)
 
-## Counter for Control Unit
+## Counter for Controller Unit Module
 1. Derrick Yu (100%)
 
-## Controller Unit
+## Controller Unit Module
 1. Derrick Yu (50%)
 2. Alex Liu (50%)
 
-## CPU
+## CPU Module 
 1. Derrick Yu (50%)
 2. Alex Liu (50%)
 
