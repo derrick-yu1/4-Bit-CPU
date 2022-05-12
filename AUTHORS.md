@@ -38,4 +38,17 @@
 1. Derrick Yu (50%)
 2. Alex Liu (50%)
 
+## Timing Diagrams
+### Memory (STORE)
+1. Derrick Yu (50%)
+2. Alex Liu (50%)
+
+### Arithmetic/Logical (ADD)
+1. Derrick Yu (50%)
+2. Alex Liu (50%)
+
+### Branch (JUMP)
+1. Derrick Yu (50%)
+2. Alex Liu (50%)
+
 
