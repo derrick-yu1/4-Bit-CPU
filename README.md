@@ -112,10 +112,10 @@ reg addr15 = 4'b1111; reg [7:0] data15 = 8'b00000001;
 ```
 Simply input your machine code and on your terminal, enter
 ```
-iverilog -o cpuf_tb.vvp cpuf_tb.v
+iverilog -o cpufinal_tb.vvp cpufinal_tb.v
 ```
 ```
-vvp cpuf_tb.vvp
+vvp cpufinal_tb.vvp
 ```
 
 ## How code is loaded into RAM in the testbench:
