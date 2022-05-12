@@ -130,7 +130,7 @@ In the diagrams below, the "green colored" modules are ones that have at least o
 
 Overall Timing Diagram:
 
-![Timing Diagram (T1-T4)](https://user-images.githubusercontent.com/100246360/167759231-e80454b1-6ed3-4f8f-bfb5-c1f5b58ef761.jpg)
+![T1-T4](https://user-images.githubusercontent.com/100246360/167968499-9b013ecf-c817-46eb-88f8-9f96115f13c4.jpg)
 
 T1:
 
