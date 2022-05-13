@@ -88,26 +88,28 @@ As you can see, the majority of the instructions have a direct addressing mode. 
 # What happens in PROGRAMMING Mode
 ## How to load your own code 
 In the file “cpufinal_tb.v”, there is a section called “RAM Contents - Object File” where you can input your machine code so that when the testbench is running, it will load your machine code into the RAM module during simulation. The format of this section mimics the RAM hardware for readability. Make sure that the addresses for each of your instructions and data are correct. 
+
 ```
-/*RAM Contents - OBJECT FILE (Fibonacci)*/
-  /****Address*****/    /**Instruction or Data**/
+/*RAM Contents - Machine Code (Fibonacci)*/
+ /*****Address*****/    /**Instruction or Data**/
 reg addr0 = 4'b0000; reg [7:0] data0 = 8'b10111111; //STORE A15
-reg addr1 = 4'b0001; reg [7:0] data1 = 8'b00001110; //ADD A14 (A13 + A14)
+reg addr1 = 4'b0001; reg [7:0] data1 = 8'b00001110; //ADD A14
 reg addr2 = 4'b0010; reg [7:0] data2 = 8'b11100000; //OUTPUT
 reg addr3 = 4'b0011; reg [7:0] data3 = 8'b10111101; // STORE A13
 reg addr4 = 4'b0100; reg [7:0] data4 = 8'b10001101; //LOAD A13
 reg addr5 = 4'b0101; reg [7:0] data5 = 8'b10111111; //STORE A15
-reg addr6 = 4'b0110; reg [7:0] data6 = 8'b00001110; //ADD A14 (A13 + A14) 
+reg addr6 = 4'b0110; reg [7:0] data6 = 8'b00001110; //ADD A14 
 reg addr7 = 4'b0111; reg [7:0] data7 = 8'b11100000; // OUTPUT
 reg addr8 = 4'b1000; reg [7:0] data8 = 8'b10111101; // STORE A13
 reg addr9 = 4'b1001; reg [7:0] data9 = 8'b10001111; //LOAD A13
 reg addr10 = 4'b1010; reg [7:0] data10 = 8'b10111110; //LOAD A14
 reg addr11 = 4'b1011; reg [7:0] data11 = 8'b10101100; //JUMP A12
-reg addr12 = 4'b1100; reg [7:0] data12 = 8'b00000100; 
-reg addr13 = 4'b1101; reg [7:0] data13 = 8'b00000000; 
-reg addr14 = 4'b1110; reg [7:0] data14 = 8'b00000001; 
-reg addr15 = 4'b1111; reg [7:0] data15 = 8'b00000001;
+reg addr12 = 4'b1100; reg [7:0] data12 = 8'b00000100; //Address 0100
+reg addr13 = 4'b1101; reg [7:0] data13 = 8'b00000000; //Immediate 0
+reg addr14 = 4'b1110; reg [7:0] data14 = 8'b00000001; //Immediate 1
+reg addr15 = 4'b1111; reg [7:0] data15 = 8'b00000001; //Immediate 1
 ```
+
 Simply input your machine code and on your terminal, enter
 ```
 iverilog -o cpufinal_tb.vvp cpufinal_tb.v
