@@ -23,12 +23,12 @@ wire [3:0] Addr;
 /*RAM Contents - Machine Code (Fibonacci)*/
  /*****Address*****/    /**Instruction or Data**/
 reg addr0 = 4'b0000; reg [7:0] data0 = 8'b10111111; //STORE A15
-reg addr1 = 4'b0001; reg [7:0] data1 = 8'b00001110; //ADD A14 (A13 + A14)
+reg addr1 = 4'b0001; reg [7:0] data1 = 8'b00001110; //ADD A14 
 reg addr2 = 4'b0010; reg [7:0] data2 = 8'b11100000; //OUTPUT
 reg addr3 = 4'b0011; reg [7:0] data3 = 8'b10111101; // STORE A13
 reg addr4 = 4'b0100; reg [7:0] data4 = 8'b10001101; //LOAD A13
 reg addr5 = 4'b0101; reg [7:0] data5 = 8'b10111111; //STORE A15
-reg addr6 = 4'b0110; reg [7:0] data6 = 8'b00001110; //ADD A14 (A13 + A14) 
+reg addr6 = 4'b0110; reg [7:0] data6 = 8'b00001110; //ADD A14  
 reg addr7 = 4'b0111; reg [7:0] data7 = 8'b11100000; // OUTPUT
 reg addr8 = 4'b1000; reg [7:0] data8 = 8'b10111101; // STORE A13
 reg addr9 = 4'b1001; reg [7:0] data9 = 8'b10001111; //LOAD A13
