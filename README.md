@@ -126,7 +126,7 @@ In the “Overview of Architecture” section, there are multiplexers for the ad
 # What happens in RUN Mode
 Each instruction will take six clock cycles (CPI = 6). This is because most instructions (arithmetic, BRLINKZ) will take all six clock cycles, so no operations were added to those instructions that did not need all six clock cycles to be completed. Each clock cycle has a very specific purpose in how to execute the instruction. As a result, they will be referred to as “T States” (T1-T6), where the first clock cycle is T1, the second clock cycle is T2, etc. The functionality of T1-T4 is the same for all instructions.
 
-In the diagrams below, the "green colored" modules are the modules that are involved in the instruction at the particular clock cycle. 
+In the diagrams below, the "green colored" modules are the modules that are involved in the particular clock cycle. 
 
 ### T1-T4 Cycle
 
