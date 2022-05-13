@@ -14,25 +14,27 @@ A 4-bit CPU and a 16 by 8 RAM in a von Neumann computer architecture were design
   - Cp - Increment the program counter 
   - Ep - Output the content of the program counter onto the bus
 2. Memory Address Register (MAR): Register that holds the address of the current instruction. It is positive edge triggered with two control pins
-  - Lm - Load content from the bus to the memory address register
+  - Lm - Load content from the bus into the memory address register
   - Em - Output the content of the memory address register onto the bus 
-3. RAM: Stores data and instructions. It is positive edge triggered with two control pins  - We - Read the content of the RAM at the current address or Write to the RAM at the current address
-4. Instruction Register: Register that holds the instruction. It is positive edge triggered with two control pins
+3. RAM: Stores data and instructions. It is positive edge triggered with two control pins  
+  - We - Controls whether you are reading or writing to the RAM module at a certain address
+  - CS - Output the content of the RAM module onto the bus in READ mode
+5. Instruction Register: Register that holds the instruction. It is positive edge triggered with two control pins
   - Li - Load the content from the bus into the instruction register
   - Ei - Output the content of the instruction register onto the bus
-5. Control Unit: It decodes the opcode from the instruction and controls all control pins of all modules. It is negatively edge triggered. 
-6. Accumulator: Register that stores the result of an ALU operation. It is positive edge triggered with two control pins
+6. Control Unit: It decodes the opcode from the instruction and controls all control pins of all modules. It is negative edge triggered. 
+7. Accumulator: Register that stores the result of an ALU operation. It is positive edge triggered with two control pins
   - La - Load content from the bus into the accumulator
   - Ea - Output the content of the accumulator onto the bus
-7. ALU: Performs arithmetic and logical operations. It has three control pins grouped as a single “Select” control
-  - ALU Select (M2M1M0)
-8. ALU Input Register: Register that holds the data that will be used to perform an operation by the ALU with the content in the accumulator. It is positive edge triggered with one control pin
+8. ALU: Performs arithmetic and logical operations. It has three control pins grouped as a single “Select” control
+  - ALU Select (M2 M1 M0)
+9. ALU Input Register: Register that holds the data that will be used to perform an operation by the ALU with the content in the accumulator. It is positive edge triggered with one control pin
   - Lib - Load content from the bus into the ALU input register
-9. Return Address Register: Register that holds the address of the instruction that the program will return to after branching. It is positive edge triggered with two control pins
+10. Return Address Register: Register that holds the address of the instruction that the program will return to after branching. It is positive edge triggered with two control pins
   - Lc - Load content from the bus into the return address register
   - Ec - Output the content of the return address register onto the bus
-10. Output Register: Register that holds the content that the user wants to be outputted from the accumulator. It is positiveFddd edge triggered with one control pin
-  - Lo - Load the output register from the bus
+11. Output Register: Register that holds the content that the user wants to be outputted from the accumulator. It is positive edge triggered with one control pin
+  - Lo - Load content from the bus into the output register
 
 ## Instruction Set Architecture
 | Instruction Name     | Addressing      | Opcode | Format   
