@@ -6,7 +6,7 @@ ECE-251 Professor Marano
 A 4-bit CPU and a 16 by 8 RAM in a von Neumann computer architecture were designed using Verilog. The CPU was modeled after the SAP computer series taught in *Digital Computer Electronics* by Malvino and Brown. However, this CPU has a different overall instruction set from all architectures because of its limited but useful 4 bit opcodes and the Verilog simulation had to be designed from scratch. The priority was for the CPU to be capable of doing arithmetic/logical operations, load/store, unconditional jump, and unconditional/conditional branch and link. These operations are highlighted in the ultimate Fibonacci code that will be presented later. Despite being a 4 bit CPU with the ALU operand being 4 bits, all instructions (and as a result RAM word width) are 8 bits (upper nibble is the opcode and lower nibble is the operand), therefore requiring an 8 bit data bus. 
 
 ## Overview of Architecture
-![Overview of Architecture](https://user-images.githubusercontent.com/100246360/167650453-4d56caed-4ea6-422e-a36b-18de38ca4d33.jpg)
+![Architecture](https://user-images.githubusercontent.com/100246360/168284674-77ba30af-9b3a-41ab-aa86-e036d9bea371.jpg)
 
 ## Description of Each Module
 1. Program Counter: Register that holds the address of the next instruction in memory. It is positive edge triggered with three control pins
@@ -67,29 +67,29 @@ Implied Addressing
 | ------------- | ------------- | 
 | Bit 7 - 4 | Bit 3 - 0 | 
 
-1. ADD - Add the data stored in the address (operand) to the data in the accumulator and load the result into the accumulator.
-2. SUB - Subtract the data stored in the address (operand) to the data in the accumulator and load the result into the accumulator.
-3. MUL - Multiply the data stored in the address (operand) to the data in the accumulator and load the result into the accumulator.
-4. DIV - Divide the data stored in the address (operand) to the data in the accumulator and load the result into the accumulator.
-5. NOT - Bit NOT the data stored in the address (operand) with the data in the accumulator and load the result into the accumulator.
-6. AND - Bit AND the data stored in the address (operand) with the data in the accumulator and load the result into the accumulator.
-7. OR - Bit OR the data stored in the address (operand) with the data in the accumulator and load the result into the accumulator.
+1. ADD - Add the data stored in the address (operand) in the RAM module to the data in the accumulator and load the result into the accumulator.
+2. SUB - Subtract the data stored in the address (operand) in the RAM module to the data in the accumulator and load the result into the accumulator.
+3. MUL - Multiply the data stored in the address (operand) in the RAM module to the data in the accumulator and load the result into the accumulator.
+4. DIV - Divide the data stored in the address (operand) in the RAM module to the data in the accumulator and load the result into the accumulator.
+5. NOT - Bit NOT the data stored in the address (operand) in the RAM module with the data in the accumulator and load the result into the accumulator.
+6. AND - Bit AND the data stored in the address (operand) in the RAM module with the data in the accumulator and load the result into the accumulator.
+7. OR - Bit OR the data stored in the address (operand) in the RAM module with the data in the accumulator and load the result into the accumulator.
 8. STOP - Stop the clock.
-9. LOAD - Load the data stored in the address (operand) into the accumulator.
-10. BRLINKZ - If the zero flag of the ALU is 1, branch to a procedure that has the address stored in the operand of the instruction and load the return address (the instruction that the program was supposed to go to) into the return address register.
+9. LOAD - Load the data stored in the address (operand) inside the RAM module into the accumulator.
+10. BRLINKZ - If the zero flag of the ALU is 1, branch to a procedure that has the address stored in the operand of the instruction and load the return address (address of previous instruction + 1) into the return address register.
 11. JUMP - Jump to an instruction to the address stored in the operand of the instruction.
 12. STORE - Store the data in the accumulator to the address in the operand of the instruction.
-13. BRLINK - Branch to a procedure that has the address stored in the operand of the instruction and load the return address into the return address register
+13. BRLINK - Branch to a procedure that has the address stored in the operand of the instruction and load the return address (address of previous instruction + 1) into the return address register.
 14. OUTPUT - Load the data stored in the accumulator into the output register.
 15. BRR - Return to the address in the return address register by loading the return address into the program counter.
 
-As you can see, the majority of the instructions have a direct addressing mode. This means that the assembly code will be in terms of ADDRESSES in the RAM module, not registers like more advanced architectures. For example, the instruction “ADD A15”, means “add whatever is in address 1111 in your RAM to whatever is in the accumulator”. If the number 5 is in address 1111, running “ADD A15” will add +5 to the accumulator. When you program your own code, you have the freedom of adding any constant that you like, but the addresses of the constants must be higher than the addresses of the instructions. (NOTE THE MEMORY HIERARCHY)
+As you can see, the majority of the instructions have a direct addressing mode. This means that the assembly code will be in terms of ADDRESSES in the RAM module, not registers like more advanced architectures. For example, the instruction “ADD 15”, means “add whatever is in address 15 in your RAM to whatever is in the accumulator”. If the number 5 is in address 15, running “ADD 15” will add 5 to the accumulator. When you program your own code, you have the freedom of adding any constant that you like, but the addresses of the constants must be higher than the addresses of the instructions (NOTE THE MEMORY HIERARCHY).
 
 ![Memory Hierarchy](https://user-images.githubusercontent.com/100246360/167651325-a5eafb6a-317b-46d0-8f3a-f6b951670439.jpg)
 
 # What happens in PROGRAMMING Mode
 ## How to load your own code 
-In the file “cpufinal_tb.v”, there is a section called “RAM Contents - Object File” where you can input your machine code so that when the testbench is running, it will load your machine code into the RAM module during simulation. The format of this section mimics the RAM hardware for readability. Make sure that the addresses for each of your instructions and data are correct. 
+In the file “cpufinal_tb.v”, there is a section called “RAM Contents - Machine Code” where you can input your machine code so that when the testbench is running, it will load your machine code into the RAM module during simulation. The format of this section mimics the RAM hardware for readability. Make sure that the addresses for each of your instructions and data are correct. 
 
 ```
 /*RAM Contents - Machine Code (Fibonacci)*/
@@ -121,12 +121,12 @@ vvp cpufinal_tb.vvp
 ```
 
 ## How code is loaded into RAM in the testbench:
-In the “Overview of Architecture” section, there is two 4:1 mux for the address input of the RAM and the data input of the RAM. The muxes select whether the address and data inputted into the RAM are either from the machine code during programming mode or from the memory address register or bus in run mode. When you are uploading the machine code to the RAM, the mux will be set to output whatever is from the machine code for both address and the data input (in programming mode). When you are done uploading the object file, the mux will then select the memory address register for the address of the RAM and the bus for the data input (now in run mode)
+In the “Overview of Architecture” section, there are multiplexers for the address input of the RAM module and the data input of the RAM module. The multiplexers select whether the address and data inputted into the RAM module are either from the machine code during programming mode or from the memory address register and bus in run mode. When you are uploading the machine code to the RAM module, the multiplexers will be set to output whatever is from the machine code for both address and the data input (in programming mode). When you are done uploading the machine code, the multiplexers will then select the memory address register for the address of the RAM module and the bus for the data input of the RAM module (now in run mode).
 
 # What happens in RUN Mode
-Each instruction will take six clock cycles (CPI = 6). This is because most instructions (arithmetic, BRLINK/Z) will take all six clock cycles, so no operations were added to those instructions that did not need all six clock cycles to be completed. Each clock cycle has a very specific purpose in how to execute the instruction. As a result, they will be referred to as “T States” (T1-T6), where the first clock cycle is T1, the second clock cycle is T2, etc. The functionality of T1-T4 is the same for all instructions:
+Each instruction will take six clock cycles (CPI = 6). This is because most instructions (arithmetic, BRLINKZ) will take all six clock cycles, so no operations were added to those instructions that did not need all six clock cycles to be completed. Each clock cycle has a very specific purpose in how to execute the instruction. As a result, they will be referred to as “T States” (T1-T6), where the first clock cycle is T1, the second clock cycle is T2, etc. The functionality of T1-T4 is the same for all instructions.
 
-In the diagrams below, the "green colored" modules have at least one change in the state of their control pins. This is for sequential modules (which make up most of the CPU except for the muxes).
+In the diagrams below, the "green colored" modules have at least one change in the state of their control pins. This is for sequential modules (which make up most of the CPU).
 
 ### T1-T4 Cycle
 
@@ -136,7 +136,7 @@ Overall Timing Diagram:
 
 T1:
 
-Description: Send the content of the program counter to the memory address register, accessing the data at that address in the RAM. 
+Description: Send the content of the program counter to the memory address register, accessing the data at that address in the RAM module. 
 
 To accomplish this task, the program counter must be enabled so that it can put its content on the bus and the memory address register must have a HIGH load signal to take in content from the bus. Therefore, the Ep signal must be HIGH and the Lm load signal must be HIGH. 
 
@@ -156,9 +156,9 @@ Diagram:
 
 T3:
 
-Description: Send the data at the address in the RAM to the instruction register, where it will automatically send the opcode of the instruction to the controller. 
+Description: Send the data at the address in the RAM module to the instruction register, where it will automatically send the opcode of the instruction to the controller. 
 
-The CS signal is HIGH, allowing the RAM module to load data onto the bus. The signal Li signal is HIGH, which causes the instruction register to load whatever data is on the bus, in this case, the data from the RAM module.
+The CS signal is HIGH, allowing the RAM module to load data onto the bus. The signal Li signal is HIGH, which causes the instruction register to load in whatever data is on the bus, in this case, the data from the RAM module.
 
 Diagram:
 
@@ -168,7 +168,7 @@ T4:
 
 Description: Since all instructions are in terms of addresses, the computer will send the address operand of the instruction from the instruction register to the memory address register, setting the RAM module at the address. 
 
-The signals Ei is HIGH, which allows the instruction register to load its data onto the bus, The signal Lm is HIGH, which means the memory address register will load the data on the bus, in this case, the content from the instruction register.
+The signals Ei is HIGH, which allows the instruction register to load the operand of the instruction onto the bus, The signal Lm is HIGH, which means the memory address register will load in the data on the bus, in this case, the content from the instruction register.
 
 Diagram:
 
@@ -182,7 +182,7 @@ Overall Timing Diagram:
 
 T5: 
 
-Description: The content of the accumulator will be loaded into the RAM.
+Description: The content of the accumulator will be loaded into the RAM module.
 
 The signals Ea is HIGH, allowing the accumulator to output its content onto the bus. The signal We is HIGH, allowing the content from the bus, in this case, the accumulator, to be written into the RAM module.
 
@@ -202,9 +202,9 @@ Overall Timing Diagram:
 
 T5:
 
-Description: The data at the address that the RAM is set will be loaded into the ALU Input register.
+Description: The data at the address that the RAM module is set will be loaded into the ALU Input register.
 
-The signal CS will be HIGH, allowing the RAM module to output its data onto the bus. The signal Lib will be HIGH, causing the input register to load the data that is on the bus, in this case, the content from the RAM.
+The signal CS will be HIGH, allowing the RAM module to output its data onto the bus. The signal Lib will be HIGH, causing the input register to load in the data that is on the bus, in this case, the content from the RAM module.
 
 Diagram:
 
@@ -214,7 +214,7 @@ T6:
 
 Description: The ALU will load the result of the operation into the accumulator.
 
-The signal Ealu will be HIGH, allowing the ALU to output its content onto the bus. The signal La is high, allowing the accumulator to load the data that is on the bus, in this case, the content of the ALU. Also, the ALU Select is set at 000, which represents the ADD operation.
+The signal Ealu will be HIGH, allowing the ALU to output its content onto the bus. The signal La is high, allowing the accumulator to load in the data that is on the bus, in this case, the content of the ALU. Also, the ALU Select is set at 000, which represents the ADD operation.
 
 Diagram:
 
@@ -230,7 +230,7 @@ T5:
 
 Description: The data at the address of the RAM module will be loaded into the program counter. 
 
-The signal Cs is HIGH, allowing the RAM module to load its content onto the bus. The signal Lp is HIGH, allowing the program counter to load data form the bus, in this case, the content from the RAM module.
+The signal Cs is HIGH, allowing the RAM module to load its content onto the bus. The signal Lp is HIGH, allowing the program counter to load in data from the bus, in this case, the content from the RAM module.
 
 Diagram:
 
