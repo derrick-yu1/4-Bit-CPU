@@ -188,7 +188,7 @@ The signals Ea is HIGH, allowing the accumulator to output its content onto the 
 
 Diagram:
 
-![T5 (STORE)](https://user-images.githubusercontent.com/100246360/167672581-a20e44d2-29c6-453e-a26f-0312e13cbc9a.jpg)
+![STORE (T5)](https://user-images.githubusercontent.com/100246360/168406288-d0f0a1e1-1502-48f8-b67a-c4db4980f2c7.jpg)
 
 T6: 
 
@@ -208,7 +208,7 @@ The signal CS will be HIGH, allowing the RAM module to output its data onto the 
 
 Diagram:
 
-![T5 (ADD)](https://user-images.githubusercontent.com/100246360/167669653-c26b0ab3-d067-4a4c-acde-8ba123f3fc0a.jpg)
+![T5 (ADD)](https://user-images.githubusercontent.com/100246360/168406300-bc9f2c36-4975-48ce-9894-383638da00d5.jpg)
 
 T6: 
 
@@ -218,7 +218,7 @@ The signal Ealu will be HIGH, allowing the ALU to output its content onto the bu
 
 Diagram:
 
-![T6 (ADD)](https://user-images.githubusercontent.com/100246360/167670024-e83078a2-90b9-4cc0-aef5-bc3986aff9f2.jpg)
+![T6 (ADD)](https://user-images.githubusercontent.com/100246360/168406309-b08d5ca3-c6fd-4032-b27f-bde21835837e.jpg)
 
 ### Branching (JUMP Instruction):
 
@@ -234,7 +234,7 @@ The signal Cs is HIGH, allowing the RAM module to load its content onto the bus.
 
 Diagram:
 
-![T5 (JUMP)](https://user-images.githubusercontent.com/100246360/167670349-ccadf09e-0c69-4590-8e1a-fe1136468d5e.jpg)
+![JUMP (T5)](https://user-images.githubusercontent.com/100246360/168406322-3ec20e57-2222-4a7b-b367-deb2dbc976cb.jpg)
 
 T6:
 
