@@ -22,7 +22,7 @@ A 4-bit CPU and a 16 by 8 RAM in a von Neumann computer architecture were design
 5. Instruction Register: Register that holds the instruction. It is positive edge triggered with two control pins
   - Li - Load the content from the bus into the instruction register
   - Ei - Output the content of the instruction register onto the bus
-6. Control Unit: It decodes the opcode from the instruction and controls all control pins of all modules. It is negative edge triggered. 
+6. Controller: It decodes the opcode from the instruction and controls all control pins of all modules. It is negative edge triggered. 
 7. Accumulator: Register that stores the result of an ALU operation. It is positive edge triggered with two control pins
   - La - Load content from the bus into the accumulator
   - Ea - Output the content of the accumulator onto the bus
