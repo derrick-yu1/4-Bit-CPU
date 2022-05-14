@@ -26,7 +26,7 @@
 ## Counter for Control Unit Module
 1. Derrick Yu (100%)
 
-## Controller Unit Module
+## Control Unit Module
 1. Derrick Yu (50%)
 2. Alex Liu (50%)
 
