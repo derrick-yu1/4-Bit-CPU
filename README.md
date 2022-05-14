@@ -6,7 +6,7 @@ ECE-251 Professor Marano
 A 4-bit CPU and a 16 by 8 RAM in a von Neumann computer architecture were designed using Verilog. The CPU was modeled after the SAP computer series taught in *Digital Computer Electronics* by Malvino and Brown. However, this CPU has a different overall instruction set from all architectures because of its limited but useful 4 bit opcodes and the Verilog simulation had to be designed from scratch. The priority was for the CPU to be capable of doing arithmetic/logical operations, load/store, unconditional jump, and unconditional/conditional branch and link. These operations are highlighted in the ultimate Fibonacci code that will be presented later. Despite being a 4 bit CPU with the ALU operand being 4 bits, all instructions (and as a result RAM word width) are 8 bits (upper nibble is the opcode and lower nibble is the operand), therefore requiring an 8 bit data bus. 
 
 ## Overview of Architecture
-![Architecture](https://user-images.githubusercontent.com/100246360/168284674-77ba30af-9b3a-41ab-aa86-e036d9bea371.jpg)
+![Architecture](https://user-images.githubusercontent.com/100246360/168406049-6e2239d7-8cc1-4852-9829-06605130537e.jpg)
 
 ## Description of Each Module
 1. Program Counter: Register that holds the address of the next instruction in memory. It is positive edge triggered with three control pins
@@ -142,7 +142,7 @@ To accomplish this task, the program counter must be enabled so that it can put 
 
 Diagram:
 
-![T1](https://user-images.githubusercontent.com/100246360/167652593-f6c9361a-285c-4d41-8f6a-907b497f93c1.jpg)
+![T1](https://user-images.githubusercontent.com/100246360/168406067-2b8770ab-f68b-407c-a023-2bd20cc05dd7.jpg)
 
 T2: 
 
@@ -152,7 +152,7 @@ The Cp signal is high, which causes the program counter to be incremented by 1 s
 
 Diagram:
 
-![T2](https://user-images.githubusercontent.com/100246360/167653005-6c862c6a-5e44-43a9-ae8f-739bad258976.jpg)
+![T2](https://user-images.githubusercontent.com/100246360/168406077-0eaf490e-295d-44ad-924e-715efd95ec28.jpg)
 
 T3:
 
@@ -162,7 +162,7 @@ The CS signal is HIGH, allowing the RAM module to load data onto the bus. The si
 
 Diagram:
 
-![T3](https://user-images.githubusercontent.com/100246360/167653338-715bd238-038e-41de-88fd-1eed4f51b95e.jpg)
+![T3](https://user-images.githubusercontent.com/100246360/168406084-9d033790-e6a3-4fdf-8a76-843aba368e16.jpg)
 
 T4: 
 
@@ -172,7 +172,7 @@ The signals Ei is HIGH, which allows the instruction register to load the operan
 
 Diagram:
 
-![T4](https://user-images.githubusercontent.com/100246360/167668212-b9588ab2-1b16-44ae-8a6e-59cfdec44cdd.jpg)
+![T4](https://user-images.githubusercontent.com/100246360/168406094-e6439436-66a2-4b8f-a126-c3a2c0f56768.jpg)
 
 ### Memory (STORE Instruction):
 
