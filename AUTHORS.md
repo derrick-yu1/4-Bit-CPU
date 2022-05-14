@@ -23,7 +23,7 @@
 ## RAM and Multiplexers Module
 1. Derrick Yu (100%)
 
-## Counter for Controller Unit Module
+## Counter for Control Unit Module
 1. Derrick Yu (100%)
 
 ## Controller Unit Module
